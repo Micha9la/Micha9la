@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Micha9la
 - 👀 I’m interested in all kinds of projects to put my programming knowledge into practice to learn and become a good programmer
-- 🌱 I’m started to learn python and closure
+- 🌱 I started to learn python and closure
 - 💞️ I’m looking to collaborate on projects
 - 📫 How to reach me: michaelawindhager@hotmail.com
 
