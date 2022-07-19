@@ -1,0 +1,125 @@
+1.2.4.
+void mowTheLawn()
+{ repeat (3) 
+    {mowTwoLines();}
+}
+
+void mowTwoLines()
+{ 
+    while (beeperAhead())
+    {moveForward(); pickBeeper();
+    }  
+    repeat (2) {moveForward(); turnLeft();}
+    while (beeperAhead())
+    {moveForward(); pickBeeper();
+    }  
+    repeat (2) {moveForward(); turnRight();}
+}
+
+1.2.3.
+void saveTheFlower()
+{ pickUpFlower();
+    repeat (4){
+        climbHill();}
+    dropFlower();
+    repeat (4){
+        downHill();}
+}  
+
+void downHill()
+{ 
+    while (frontIsClear()) 
+    {moveForward();}
+    while (!frontIsClear())
+    {turnLeft(); moveForward(); turnRight();} 
+}
+
+void dropFlower()
+{
+    moveForward();
+    dropBeeper();
+    moveForward();
+    turnRight();
+}
+
+void climbHill()
+{ 
+    while (frontIsClear()) 
+    {moveForward();}
+    while (!frontIsClear())
+    {turnLeft(); moveForward();} 
+    moveForward();
+    turnRight();
+}
+
+void pickUpFlower()
+{
+    moveForward();
+    pickBeeper();
+    
+    
+}
+
+1.2.2.
+void fillTheHoles()
+{ repeat (4) {
+        fillOneHole();}
+}
+
+void fillOneHole()
+{ moveForward();
+    turnRight();
+    moveForward();
+    dropBeeper();
+    turnAround();
+    moveForward();
+    turnRight();
+    moveForward();
+}
+
+1.2.1.
+void climbTheStairs()
+{ 
+    repeat (6) {
+        climbOneStair();}
+    moveForward();
+}
+
+
+void climbOneStair()
+{
+    if (frontIsClear() )
+    {
+        moveForward(); 
+    }
+    if (leftIsClear())
+    {
+        turnLeft();
+        moveForward();  
+    }
+    turnRight();
+} 
+
+1.1.4.
+void practiceHomeRun()
+{
+    repeat (4) {
+        defuseOneBomb();}
+    
+}
+
+
+void defuseTwoBombs()
+{defuseOneBomb();
+    turnRight();
+    defuseOneBomb();
+}
+
+
+void defuseOneBomb()
+{
+    repeat (9) {
+        moveForward();}
+    pickBeeper();
+    turnLeft();
+}
