@@ -1,0 +1,168 @@
+1.4.3.
+void walkTheLabyrinth()
+{
+    while (!onBeeper())
+    {
+        if (frontIsClear())
+        {
+            moveForward(); 
+        }
+        else if (leftIsClear())
+        {
+            turnLeft();
+        }
+        else if (rightIsClear())
+        {
+            turnRight();
+        }
+    }
+}
+
+
+1.4.2.
+void removeTheTiles1()
+{
+    repeat(19)
+    {
+        while (onBeeper() && frontIsClear() && beeperAhead())
+        {
+            pickBeeper();
+            moveForward();
+        }
+        if (!frontIsClear() || !beeperAhead() )
+        {
+            turnLeft();
+        }
+        if (frontIsClear() && onBeeper() && !beeperAhead())
+        {
+            pickBeeper();
+        }
+    }
+} 
+
+ODER 1.4.2.
+void removeTheTiles()
+{
+    pickBeeper();
+    while(beeperAhead())
+    {
+        moveForward();
+        pickBeeper();
+        
+        if(!beeperAhead())
+        {
+            turnLeft();
+        }
+    }
+    
+}
+
+
+ODER 1.4.2.
+void removeTheTiles()
+{
+    if (onBeeper())
+    {
+        pickBeeper();
+    }
+    repeat(117)
+    {
+        if (beeperAhead())
+        {
+            moveForward();
+            pickBeeper();
+        }
+        else
+        {
+            turnLeft();
+        }
+    }
+}
+
+
+1.4.1.
+void stealOlympicFire()
+{
+    while (!beeperAhead())
+    {
+        oneStep();
+    }
+    if (beeperAhead())
+    {
+        moveForward();
+        pickBeeper();
+    }
+    getDown();
+    
+}
+
+void oneStep()
+{
+    if (frontIsClear())
+    {
+        moveForward();
+    }
+    else if (!frontIsClear())
+    {
+        turnLeft();
+        moveForward();
+        turnRight();
+    }   
+}
+
+
+ODER 1.4.1.
+void stealOlympicFire()
+{
+    repeat(9)
+    {
+        if (frontIsClear() && !rightIsClear())
+        {
+            moveForward();
+            pickFire();
+        }
+        else if (frontIsClear() && rightIsClear())
+        {
+            turnRight();
+            while (frontIsClear())
+            {
+                moveForward();
+            }
+            turnLeft();
+            moveForward();
+        }
+        else if (!onBeeper() && !frontIsClear())
+        {
+            turnLeft();
+            moveForward();
+            turnRight();
+            moveForward();
+        }
+    }
+}
+
+ODER 1.4.1.
+void stealOlympicFire()
+{
+    moveForward();
+    repeat(6)
+    {
+        if(!frontIsClear())
+        {
+            turnLeft();
+            moveForward();
+            turnRight();
+            moveForward();
+        }
+    }
+    pickBeeper();
+    moveForward();
+    turnRight();
+    repeat(6)
+    {
+        moveForward();
+    }
+    turnLeft();
+    moveForward();
+    
+}
