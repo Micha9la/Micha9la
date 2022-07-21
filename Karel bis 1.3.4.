@@ -1,0 +1,164 @@
+1.3.4.
+void tileTheFloor()
+{ repeat (19) 
+    {
+        tileTheRow();
+        turnLeft();
+    } 
+}
+
+void tileTheRow()
+{
+    if (!onBeeper())
+    {
+        dropBeeper();
+    }
+    while (frontIsClear() && !beeperAhead())
+    {
+        moveForward();
+        dropBeeper();   
+    } 
+}
+
+ODER 1.3.4.
+void tileTheFloor()
+{
+    repeat(100)
+    {
+        if (frontIsClear() && !beeperAhead())
+        {
+            dropBeeper();
+            moveForward();
+        }
+        else 
+        {
+            dropBeeper();
+            turnLeft();
+            moveForward();
+        }       
+    }
+}
+
+
+
+1.3.3.
+void cleanTheRoom()
+{ repeat (5) {
+        cleanOneRow();
+        turnToNextRowLeft();
+        cleanOneRow();
+        turnToNextRowRight();}
+}
+
+void cleanOneRow()
+{ if (onBeeper())
+    {
+        pickBeeper();
+    }
+    while (frontIsClear()) 
+    {
+        moveForward();
+        if (onBeeper())
+        {
+            pickBeeper();
+        }  
+    }
+}
+
+void turnToNextRowLeft()
+{turnLeft();
+    moveForward();
+    if (onBeeper())
+    {
+        pickBeeper();
+    }
+    turnLeft();
+}
+
+void turnToNextRowRight()
+{turnRight();
+    if (frontIsClear()) 
+    {
+        moveForward();
+    }
+    if (onBeeper())
+    {
+        pickBeeper();
+    }
+    turnRight();
+}
+
+
+1.3.2.
+void repairTheStreet()
+{repeat (10) {
+        if (rightIsClear())
+        {
+            fixOneWhole();
+        }
+        else 
+        {
+            if (frontIsClear())
+            {moveForward();
+            }
+        }
+    }
+}
+
+void fixOneWhole ()
+{
+    turnRight();
+    moveForward(); 
+    dropBeeper();
+    turnAround();
+    moveForward();
+    turnRight();
+    if (frontIsClear())
+    {moveForward();
+    }
+}
+
+1.3.1.
+void harvestTheField()
+{
+    pickBeeper();
+    repeat (3){
+        moveToRightBeeper();
+        pickBeeper(); turnLeft();}
+    moveToLeftBeeper(); 
+    pickBeeper(); 
+    turnLeft();
+    repeat (2){
+        moveToRightBeeper();
+        pickBeeper(); turnLeft();}
+    moveForward();
+    turnRight();
+    moveForward();
+    pickBeeper();
+    moveToRightBeeper();
+    pickBeeper();
+    repeat (3){
+        moveToRightBeeper();
+        pickBeeper(); turnLeft();}
+    repeat (2) {
+        moveToLeftBeeper();
+        pickBeeper();}
+    moveToRightBeeper();
+    pickBeeper();
+    moveToLeftBeeper();
+    pickBeeper();
+}
+
+void moveToRightBeeper()
+{
+    moveForward();
+    turnRight();
+    moveForward();   
+}
+void moveToLeftBeeper()
+{
+    moveForward();
+    turnLeft();
+    moveForward();
+    
+}
