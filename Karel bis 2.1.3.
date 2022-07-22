@@ -1,4 +1,71 @@
+2.1.3.
+void cleanTheTunnels()
+{
+    while (onBeeper())
+    {    
+        turnLeft();
+        pickBeeper();
+        while (beeperAhead())
+        {
+            moveForward();
+            pickBeeper();
+        }
+        turnAround();
+        while(frontIsClear())
+        {
+            moveForward();
+        }     
+        turnLeft();
+        while (!onBeeper() && frontIsClear())
+        {
+            moveForward();
+        }
+    }
+}
 
+ODER 2.1.3.
+void cleanTheTunnels()
+{ repeat (10)
+    {
+        turnLeft();
+        pickBeeper();
+        while (beeperAhead())
+        {
+            moveForward();
+            pickBeeper();
+            
+        }
+        turnAround();
+        while (frontIsClear())
+        {
+            moveForward();
+        }
+        if (!frontIsClear())
+        {
+            turnLeft();
+        }
+        if (frontIsClear())
+        {
+            moveForward();
+        }
+    }
+}
+
+
+
+2.1.2.
+void followTheSeeds()
+{
+    while (beeperAhead())
+    {
+        moveForward();
+        pickBeeper();
+        if (!beeperAhead())
+        {  
+            turnLeft();
+        }
+    }
+}
 
 
 2.1.1.
