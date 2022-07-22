@@ -1,0 +1,94 @@
+2.3.1.
+void saveTheFlowers()
+{ 
+    pickFourFlowers();
+    dropFourFlowers();
+}
+
+
+void pickFourFlowers()
+{ repeat(5)
+    {
+        if (!frontIsClear())
+        {
+            turnLeft();
+        }
+        while (!rightIsClear())
+        {
+            moveForward();
+        }
+        turnRight();
+        moveForward();
+        if (onBeeper())
+        {
+            pickBeeper();
+        }
+    }
+}
+
+void dropFourFlowers()
+{ repeat(4)
+    {
+        dropBeeper();
+        moveForward();
+        turnRight();
+        while (frontIsClear())
+        {
+            moveForward();
+        }
+        turnLeft();
+    }
+}
+
+2.2.3.
+void addSlow()
+{repeat(24)
+    {
+        decrement();
+        turnAround();
+        while (frontIsClear())
+        {
+            moveForward();
+        }
+        if (!frontIsClear())
+        {
+            turnRight();
+            moveForward();
+            turnRight();
+        }
+        increment();
+        turnAround();
+        while (frontIsClear())
+        {
+            moveForward();
+        }
+        if (!frontIsClear())
+        {
+            turnLeft();
+            moveForward();
+            turnLeft();
+        }
+    }
+}
+
+2.2.2.
+void decrement()
+{
+    while (!onBeeper())
+    {
+        dropBeeper();
+        moveForward();
+    }
+    pickBeeper();  
+}
+
+2.2.1.
+void increment()
+{
+    while (onBeeper())
+    {
+        pickBeeper();
+        moveForward();
+    }
+    dropBeeper();  
+}
