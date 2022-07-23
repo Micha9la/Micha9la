@@ -1,0 +1,30 @@
+2.3.2.
+void findTeddyBear()
+{ 
+    while (!frontIsClear() && !onBeeper())
+    {
+        turnLeft();
+        
+    }
+    while (frontIsClear() && !onBeeper())
+    {
+        moveForward();
+        
+        while (!frontIsClear() && !onBeeper())
+        {
+            turnLeft();
+            
+        } 
+    }
+}
+
+ODER (damit sitzt Karel ganz am Ende aber nicht so wie er soll)
+void findTeddyBear1()
+{ 
+    while (frontIsClear() && !onBeeper()) {
+        moveForward();
+        while (!frontIsClear()) {
+            turnLeft();
+        }
+    } 
+}
