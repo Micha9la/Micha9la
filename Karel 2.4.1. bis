@@ -1,3 +1,77 @@
+2.4.2.
+void quantizeBits()
+{repeat (9)
+    { 
+        if(onBeeper())
+        {
+            turnLeft(); 
+        }
+        if (!onBeeper())
+        {
+            while (!onBeeper())
+            {
+                if (frontIsClear())
+                {
+                    moveForward();
+                }
+                if(onBeeper())
+                {
+                    turnLeft(); 
+                }
+            }
+        }
+        repeat(5)
+        {
+            moveForward();
+        }
+        if (onBeeper())
+        {
+            addBits();
+        }
+        else if (!onBeeper())
+        {
+            removeBits();
+        }
+    }
+}
+
+void addBits()
+{
+    while (frontIsClear())
+    {
+        moveForward();
+        if (!onBeeper())
+        {
+            dropBeeper();
+        }
+    }
+    if (!frontIsClear())
+    {
+        turnAround();
+    } 
+    while (frontIsClear()) 
+    {
+        moveForward();
+    }  
+    turnLeft();
+    moveForward();
+}
+
+void removeBits()
+{
+    turnAround();
+    while (frontIsClear())
+    {
+        moveForward();
+        if (onBeeper())
+        {
+            pickBeeper();
+        }
+    }
+    turnLeft();
+}
+
+
 2.4.1.
 void solveTheMaze()
 {
@@ -14,7 +88,7 @@ void solveTheMaze()
         }
         else 
         {
-            turnRight();  
+            turnRight();  //oder turnAround()
         }
     }
 }
