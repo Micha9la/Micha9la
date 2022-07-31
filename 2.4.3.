@@ -1,0 +1,204 @@
+2.4.3.
+//mit selbstgemachte Funktionen:
+void addFast()
+{repeat(8) 
+    {
+        if (onBeeper())
+        {
+            moveForward();
+            if (onBeeper())
+            {
+                moveForward();
+                if (!onBeeper())
+                {
+                    carryOver();
+                }
+                else if (onBeeper())
+                {
+                    addAndCarryOver();
+                }
+            }
+            else if (!onBeeper())
+            {
+                moveForward();
+                if (onBeeper())
+                {
+                    carryOver();
+                }
+                else if (!onBeeper())
+                {
+                    add();
+                }
+            }
+        }
+        else if (!onBeeper())
+        {
+            moveForward();
+            if (onBeeper())
+            {
+                moveForward();
+                if (onBeeper())
+                {
+                    carryOver();
+                }
+                else if (!onBeeper())
+                {
+                    add();
+                }
+            }
+            else if (!onBeeper())
+            {
+                moveForward();
+                if (onBeeper())
+                {
+                    add();
+                }
+                else if (!onBeeper())
+                {
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    turnRight(); 
+                }
+                
+            }
+        }
+        while (frontIsClear())
+        {
+            moveForward();
+        }
+        turnAround();
+    }
+}
+
+void add()
+{
+    moveForward(); 
+    dropBeeper();
+    turnRight();
+    moveForward();
+    turnRight();
+}
+void carryOver()
+{
+    moveForward();
+    turnRight();
+    moveForward();
+    turnRight();
+    moveForward();
+    dropBeeper();
+}
+void addAndCarryOver()
+{
+    moveForward();
+    dropBeeper();
+    turnRight();
+    moveForward();
+    turnRight();
+    moveForward();
+    dropBeeper();
+}
+
+//Ohne selbstgemachte Funktionen:
+void addFast()
+{repeat(8) 
+    {
+        if (onBeeper())
+        {
+            moveForward();
+            if (onBeeper())
+            {
+                moveForward();
+                if (!onBeeper())
+                {//carry over
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    dropBeeper();
+                }
+                else if (onBeeper())
+                {// carry over and add
+                    moveForward();
+                    dropBeeper();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    dropBeeper();
+                }
+            }
+            else if (!onBeeper())
+            {
+                moveForward();
+                if (onBeeper())
+                {//carry over
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    dropBeeper();
+                }
+                else if (!onBeeper())
+                {// dont carry over just add
+                    moveForward(); 
+                    dropBeeper();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                }
+            }
+        }
+        else if (!onBeeper())
+        {
+            moveForward();
+            if (onBeeper())
+            {
+                moveForward();
+                if (onBeeper())
+                {//carry over
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    dropBeeper();
+                }
+                else if (!onBeeper())
+                {// dont carry over just add
+                    moveForward(); 
+                    dropBeeper();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                }
+            }
+            else if (!onBeeper())
+            {
+                moveForward();
+                if (onBeeper())
+                {//add
+                    moveForward();
+                    dropBeeper();
+                    turnRight();
+                    moveForward();
+                    turnRight();
+                }
+                else if (!onBeeper())
+                {
+                    moveForward();
+                    turnRight();
+                    moveForward();
+                    turnRight(); 
+                }
+            }
+        }
+        while (frontIsClear())
+        {
+            moveForward();
+        }
+        turnAround();
+    }
+}
