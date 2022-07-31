@@ -1,29 +1,9 @@
 2.4.2.
+//this code does not work perfectly with gaps as they are not counted as lines.
 void quantizeBits()
-{repeat (9)
+{repeat (10)
     { 
-        if(onBeeper())
-        {
-            turnLeft(); 
-        }
-        if (!onBeeper())
-        {
-            while (!onBeeper())
-            {
-                if (frontIsClear())
-                {
-                    moveForward();
-                }
-                if(onBeeper())
-                {
-                    turnLeft(); 
-                }
-            }
-        }
-        repeat(5)
-        {
-            moveForward();
-        }
+        goUpLine();
         if (onBeeper())
         {
             addBits();
@@ -32,6 +12,24 @@ void quantizeBits()
         {
             removeBits();
         }
+        turnLeft();
+        if (frontIsClear())
+        {
+            moveForward();
+        }
+        while (!onBeeper() && frontIsClear())
+        {
+            moveForward();
+        }
+    }
+}
+
+void goUpLine()
+{
+    turnLeft();
+    repeat(5)
+    {
+        moveForward();
     }
 }
 
@@ -53,10 +51,7 @@ void addBits()
     {
         moveForward();
     }  
-    turnLeft();
-    moveForward();
 }
-
 void removeBits()
 {
     turnAround();
@@ -68,7 +63,6 @@ void removeBits()
             pickBeeper();
         }
     }
-    turnLeft();
 }
 
 
