@@ -1,0 +1,68 @@
+3.1.1.
+void partyAgain()
+{while (onBeeper())
+    {
+        turnLeft();
+        pickBeeper();
+        climb();
+        if (frontIsClear())
+        {
+            moveForward();
+            if (frontIsClear())
+            {
+                moveForward();
+                if (frontIsClear())
+                {
+                    moveForward();
+                }
+                else if (!frontIsClear())
+                {
+                    hangHigh();
+                }
+            }
+            else if (!frontIsClear())
+            {
+                hangLow();
+            }
+        }
+        else if (!frontIsClear())
+        {
+            hang();
+        }
+        climb();
+        turnLeft();
+        if (frontIsClear())
+        {
+            moveForward();
+        }
+    }
+}
+
+void climb()
+{
+    repeat(5)
+    {
+        moveForward();
+    } 
+}
+
+void hangHigh()
+{
+    dropBeeper();
+    turnAround();
+    moveForward();
+    moveForward();
+}
+
+void hangLow()
+{
+    dropBeeper();
+    turnAround();
+    moveForward();
+}
+
+void hang()
+{
+    dropBeeper();
+    turnAround();
+}
