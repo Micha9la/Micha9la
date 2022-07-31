@@ -66,3 +66,42 @@ void hang()
     dropBeeper();
     turnAround();
 }
+
+ODER diese Version nutzt eine Funktion die sich selbst traegt:
+
+void partyAgain()
+{
+    while (onBeeper())
+    {
+        turnLeft();
+        if (frontIsClear())
+        {
+            pickBeeper();
+            hangOneLampion();
+            turnLeft();
+        }
+        else
+        {
+            turnRight();
+        }
+        if (beeperAhead())
+        {
+            moveForward();
+        }
+    }
+}
+
+void hangOneLampion()
+{
+    moveForward();
+    if (frontIsClear())
+    {
+        hangOneLampion();//dadurch merkt sich das Programm wie oft Karel nach vorne geht. Hier wird die "Spule" quasi aufgedreht
+    }
+    else
+    {
+        dropBeeper();
+        turnAround();
+    }
+    moveForward(); //hier wird die Spule abgedreht
+}
