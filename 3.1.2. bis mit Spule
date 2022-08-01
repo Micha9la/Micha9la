@@ -1,0 +1,75 @@
+3.2.1.
+void secureTheCave()
+{repeat(10)
+    {
+        turnLeft();
+        while (frontIsClear())
+        {
+          moveForward();
+        }
+        if (!frontIsClear())
+        {
+         turnAround();
+        }
+        moveStalactites();
+        turnRight();
+        if (frontIsClear())
+        {moveForward();}
+    }
+}
+
+void moveStalactites()
+{
+    pickBeeper();
+    moveForward();
+    if (onBeeper())
+    {
+        moveStalactites();//dadurch merkt sich das Programm wie viele Karel picken soll. Hier wird die "Spule" quasi aufgedreht
+    }
+    else
+    {while (frontIsClear())
+        {
+            moveForward();
+        }
+        turnAround();
+    }
+    dropBeeper();
+    moveForward(); //hier wird die Spule abgedreht
+}
+
+3.1.2.
+void fetchTheStars()
+{
+    repeat(10)
+    {
+        turnLeft();
+        if (frontIsClear())
+        {
+            putDownLampion();
+            turnLeft();
+        }
+        else
+        {
+            turnRight();
+        }
+        if (frontIsClear())
+        {
+            moveForward();
+        }
+    }
+}
+
+void putDownLampion()
+{
+    moveForward();
+    if (frontIsClear())
+    {
+        putDownLampion();
+    }
+    else
+    {
+        pickBeeper();
+        turnAround();
+    }
+    moveForward();
+}
