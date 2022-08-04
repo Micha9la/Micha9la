@@ -67,7 +67,7 @@ void hang()
     turnAround();
 }
 
-ODER diese Version nutzt eine Funktion die sich selbst traegt:
+ODER diese Version nutzt Rekursion:
 
 void partyAgain()
 {
