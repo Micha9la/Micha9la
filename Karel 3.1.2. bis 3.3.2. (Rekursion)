@@ -1,0 +1,126 @@
+
+
+3.3.1.
+void findShelters()
+{repeat (4) // das beschreibt alle 4 seiten die abgefragt werden sollen
+    {
+        if (frontIsClear() && !beeperAhead()) // wenn vorne geht, sonst dreht er nach links
+        {
+            moveForward();
+            if (frontIsClear() || rightIsClear() || leftIsClear())// das soll die hoehle beschreiben.
+            {
+                dropBeeper();
+                findShelters();
+            }// wenn er von beepern umgeben ist
+            turnAround();
+            moveForward();
+            turnAround();
+        }
+        turnLeft();// nachdem er von beepern umgeben ist soll er nach links. sont gaebe es endlosschleife. nach links soll er auch wenn vorne nichts geht.
+    }
+}
+
+3.2.2.
+void layAndRemoveTiles()
+{
+    if (onBeeper()) //hier ist er in der Mitte
+    {
+        turnAround();
+    }
+    else
+    {
+        dropBeeper();
+        if (frontIsClear() && !beeperAhead())
+        {
+            moveForward(); //hier geht gerade zur Mitte
+            layAndRemoveTiles(); //was davor kommt ist der erste Teil
+            moveForward(); // hier geht er gerade aus zurueck
+            pickBeeper();
+        }
+        else
+        {
+            turnLeft(); //hier geht er ueber die Ecke zur Mitte
+            moveForward();
+            layAndRemoveTiles(); //was davor kommt ist der erste Teil
+            moveForward(); // hier geht er die Ecke zurueck
+            pickBeeper();
+            turnRight();
+        }
+    }
+}
+
+3.2.1.
+void secureTheCave()
+{repeat(10)
+    {
+        turnLeft();
+        while (frontIsClear())
+        {
+          moveForward();
+        }
+        if (!frontIsClear())
+        {
+         turnAround();
+        }
+        moveStalactites();
+        turnRight();
+        if (frontIsClear())
+        {moveForward();}
+    }
+}
+
+void moveStalactites()
+{
+    pickBeeper();
+    moveForward();
+    if (onBeeper())
+    {
+        moveStalactites();//dadurch merkt sich das Programm wie viele Karel picken soll. Hier wird die "Spule" quasi aufgedreht
+    }
+    else
+    {while (frontIsClear())
+        {
+            moveForward();
+        }
+        turnAround();
+    }
+    dropBeeper();
+    moveForward(); //hier wird die Spule abgedreht
+}
+
+3.1.2.
+void fetchTheStars()
+{
+    repeat(10)
+    {
+        turnLeft();
+        if (frontIsClear())
+        {
+            putDownLampion();
+            turnLeft();
+        }
+        else
+        {
+            turnRight();
+        }
+        if (frontIsClear())
+        {
+            moveForward();
+        }
+    }
+}
+
+void putDownLampion()
+{
+    moveForward();
+    if (frontIsClear())
+    {
+        putDownLampion();
+    }
+    else
+    {
+        pickBeeper();
+        turnAround();
+    }
+    moveForward();
+}
