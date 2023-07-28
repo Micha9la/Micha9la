@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @Micha9la
 - 👀 I’m interested in all kinds of projects to put my programming knowledge into practice to learn and become a good programmer
-- 🌱 I started to learn python and closure, and also coding language html and CSS
+- 🌱 I started with some basic pseudo code exercises to get a feel of programming
 - 💞️ I’m looking forward to practice
 - 📫 How to reach me: m.hunarwindhager@gmail.com
 
